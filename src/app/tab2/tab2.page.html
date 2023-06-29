@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      AQ Prediction
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div><p width="100%" align="center">ARIMA MTS-DR</p></div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [type]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <div>Data source: (1/7/2023)</div>
+    <button (click)="randomize()">Click to Refresh</button>
+  </div>
+  <div><p width="100%" align="center">LSTM MTS-DR</p></div>
+  <div>
+    <div style="display: block">
+      <canvas baseChart
+              [datasets]="barChartData2"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              [type]="barChartType"
+              (chartHover)="chartHovered($event)"
+              (chartClick)="chartClicked($event)"></canvas>
+    </div>
+    <div>Data source: (1/7/2023)</div>
+    <button (click)="randomize2()">Click to Refresh</button>
+  </div>
+</ion-content>

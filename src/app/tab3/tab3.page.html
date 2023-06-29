@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Air Pollutant Consistituent
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div style="display: block">
+    <canvas baseChart
+                [data]="radarData"
+                [type]="radarType"
+                (chartHover)="chartHovered($event)"
+                (chartClick)="chartClicked($event)"></canvas>
+    <div>Data source: (1/7/2023)</div>
+    <button (click)="randomize()">Click to Refresh</button>
+  </div>
+</ion-content>

@@ -1,0 +1,39 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>
+      Weekly Air Quality
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="row">
+    <div class="col-md-6">
+      <div style="display: block;">
+      <canvas baseChart width="300" height="250"
+                  [datasets]="lineChartData"
+                  [labels]="lineChartLabels"
+                  [options]="lineChartOptions"
+                  [legend]="lineChartLegend"
+                  [type]="lineChartType"
+                  (chartHover)="chartHovered($event)"
+                  (chartClick)="chartClicked($event)"></canvas>
+      </div>
+    </div>
+    <div>Data source: (1/7/2023)</div>
+    <div>
+      <p width="100%" align="center">* * *</p>
+      <table width="100%">
+        <caption>Actual Air Quality</caption>
+        <tr>
+          <th *ngFor="let item of store"> {{item.label}} </th>
+        </tr>
+        <tr>
+          <td *ngFor="let item of store" align="center"> {{item.value}} </td>
+        </tr>
+      </table>
+    </div>
+    <button (click)="useDB()">Connect DB</button>
+
+  </div>
+</ion-content>
